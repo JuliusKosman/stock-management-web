@@ -30,7 +30,7 @@ export default function LoginPage() {
     if (!validateInputs()) return;
 
     try {
-      const response = await axios.post("http://localhost:3000/api/auth/login", {
+      const response = await axios.post("https://stock-management-web-8r9c.onrender.com/api/auth/login", {
         email,
         password,
       });
