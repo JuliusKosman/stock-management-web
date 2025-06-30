@@ -6,6 +6,8 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE,
       defaultValue: DataTypes.NOW
     }
+  },{
+    freezeTableName: true
   });
 
   ActivityLog.associate = (models) => {
