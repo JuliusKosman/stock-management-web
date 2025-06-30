@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = "http://localhost:5000/api"; // sesuaikan port backend
+const BASE_URL = "https://stock-management-web-8r9c.onrender.com/api"; // sesuaikan port backend
 
 // Produk
 export const getProducts = () => axios.get(`${BASE_URL}/products`);
