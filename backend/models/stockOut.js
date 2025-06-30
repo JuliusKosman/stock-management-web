@@ -13,6 +13,8 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: true
     }
+  },{
+    freezeTableName: true
   });
 
   StockOut.associate = (models) => {
