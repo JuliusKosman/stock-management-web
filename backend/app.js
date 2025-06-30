@@ -10,6 +10,14 @@ const transaksiRoutes = require('./routes/transaksiRoutes');
 dotenv.config();
 const app = express();
 
+app.use(cors({
+  origin: 'https://stock-management-q7c9weyfv-juliuskosmans-projects.vercel.app',
+  credentials: true,
+}));
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 // Middleware
 app.use(cors());
 app.use(express.json());
@@ -33,7 +41,7 @@ db.sequelize.sync({ alter: true }).then(() => {
   console.log('Database connected & synced.');
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3306;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
