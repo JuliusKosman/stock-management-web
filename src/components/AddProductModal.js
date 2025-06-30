@@ -14,7 +14,7 @@ export default function AddProductModal({ onClose, onSave }) {
 
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/products",
+        "https://stock-management-web-8r9c.onrender.com/api/products",
         {
           kode_barang: productID.trim(),
           nama_barang: productName.trim(),
