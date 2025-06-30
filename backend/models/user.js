@@ -15,6 +15,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     password: DataTypes.STRING,
     role: DataTypes.STRING,
+  },{
+    freezeTableName: true
   });
 
   User.beforeCreate(async (user) => {
