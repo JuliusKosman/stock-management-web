@@ -25,7 +25,7 @@ export default function AddStockOutModal({ onClose, onSave, products }) {
 
     try {
       await axios.post(
-        "http://localhost:3000/api/transaksi/out",
+        "https://stock-management-web-8r9c.onrender.com/api/transaksi/out",
         { product_id: productID, jumlah: amount },
         {
           headers: {
