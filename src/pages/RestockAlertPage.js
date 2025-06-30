@@ -15,7 +15,7 @@ export default function RestockAlertPage() {
   useEffect(() => {
     const fetchForecast = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/api/transaksi/forecast");
+        const res = await axios.get("https://stock-management-web-8r9c.onrender.com/api/transaksi/forecast");
         setForecastData(res.data);
       } catch (err) {
         console.error("Failed to fetch forecast data:", err);
