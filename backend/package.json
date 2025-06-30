@@ -1,7 +1,6 @@
 {
     "scripts": {
-        "start": "node app.js",
-        "build": "echo 'No build needed for backend'"
+        "start": "node app.js"
     },
     "name": "backend",
     "version": "1.0.0",
@@ -10,5 +9,12 @@
     "keywords": [],
     "author": "",
     "license": "ISC",
-    "type": "commonjs"
+    "type": "commonjs",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "dotenv": "^17.0.0",
+        "express": "^5.1.0",
+        "mysql2": "^3.14.1",
+        "sequelize": "^6.37.7"
+    }
 }
