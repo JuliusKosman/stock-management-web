@@ -1,6 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
   const StockIn = sequelize.define("StockIn", {
-    freezeTableName: true,
     jumlah: {
       type: DataTypes.INTEGER,
       allowNull: false
@@ -13,6 +12,8 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: true
     }
+  },{
+    freezeTableName: true
   });
 
   StockIn.associate = (models) => {
