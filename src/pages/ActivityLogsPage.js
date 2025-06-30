@@ -15,7 +15,7 @@ export default function ActivityLogsPage() {
   }, []);
 
   const fetchLogs = async () => {
-    const res = await axios.get("http://localhost:3000/api/transaksi/logs", {
+    const res = await axios.get("https://stock-management-web-8r9c.onrender.com/api/transaksi/logs", {
       headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
     });
     setLogs(res.data);
