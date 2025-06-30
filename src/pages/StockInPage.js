@@ -22,7 +22,7 @@ export default function StockInPage() {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/api/products", {
+      const res = await axios.get("https://stock-management-web-8r9c.onrender.com/api/products", {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       setProducts(res.data);
@@ -33,7 +33,7 @@ export default function StockInPage() {
 
   const fetchStockIn = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/api/transaksi/in", {
+      const res = await axios.get("https://stock-management-web-8r9c.onrender.com/api/transaksi/in", {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       const mapped = res.data.map(tx => ({
