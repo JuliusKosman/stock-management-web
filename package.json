@@ -31,9 +31,12 @@
     "web-vitals": "^2.1.4",
     "xlsx": "^0.18.5"
   },
+  "homepage": "https://JuliusKosman.github.io/stock-management-web",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
