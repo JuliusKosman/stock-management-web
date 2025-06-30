@@ -35,7 +35,7 @@ export default function ProductDetailPage() {
         jumlah: parseInt(product.quantity),
       };
 
-      await axios.put(`http://localhost:3000/api/products/${id}`, payload, {
+      await axios.put(`https://stock-management-web-8r9c.onrender.com/api/products/${id}`, payload, {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
 
@@ -48,7 +48,7 @@ export default function ProductDetailPage() {
 
   const handleDeleteConfirmed = async () => {
     try {
-      await axios.delete(`http://localhost:3000/api/products/${id}`, {
+      await axios.delete(`https://stock-management-web-8r9c.onrender.com/api/products/${id}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
 
