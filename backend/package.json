@@ -1,6 +1,7 @@
 {
     "scripts": {
         "start": "node app.js"
+        "build": "echo 'No build needed for backend'"
     },
     "name": "backend",
     "version": "1.0.0",
