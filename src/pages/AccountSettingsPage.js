@@ -16,7 +16,7 @@ export default function AccountSettingsPage() {
 
   const fetchUser = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/api/auth/me", {
+      const res = await axios.get("https://stock-management-web-8r9c.onrender.com/api/auth/me", {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
       });
       setUsername(res.data.username || "");
@@ -35,7 +35,7 @@ export default function AccountSettingsPage() {
   const handleSaveInfo = async () => {
     try {
       await axios.put(
-        "http://localhost:3000/api/auth/update-info",
+        "https://stock-management-web-8r9c.onrender.com/api/auth/update-info",
         { username },
         { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
       );
@@ -54,7 +54,7 @@ export default function AccountSettingsPage() {
 
     try {
       await axios.put(
-        "http://localhost:3000/api/auth/change-password",
+        "https://stock-management-web-8r9c.onrender.com/api/auth/change-password",
         { password: newPassword },
         { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
       );
