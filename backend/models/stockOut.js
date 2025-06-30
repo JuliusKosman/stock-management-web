@@ -1,5 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
   const StockOut = sequelize.define("StockOut", {
+    freezeTableName: true,
     jumlah: {
       type: DataTypes.INTEGER,
       allowNull: false
