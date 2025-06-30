@@ -11,7 +11,7 @@ export default function Topbar() {
   useEffect(() => {
     const fetchUsername = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/api/auth/me", {
+        const res = await axios.get("https://stock-management-web-8r9c.onrender.com/api/auth/me", {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
         });
         setUsername(res.data.username || "Unknown");
