@@ -20,7 +20,7 @@ export default function DashboardPage() {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/api/products", {
+      const res = await axios.get("https://stock-management-web-8r9c.onrender.com/api/products", {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
 
