@@ -34,6 +34,6 @@
         "react-toastify": "^11.0.5",
         "sequelize": "^6.37.7",
         "statsmodels": "^0.0.1-security",
-        "web-vitals": "^2.1.4",
+        "web-vitals": "^2.1.4"
     }
 }
