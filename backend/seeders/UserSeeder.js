@@ -5,14 +5,11 @@ async function seed() {
   try {
     await db.sequelize.authenticate();
 
-    const hashed1 = await bcrypt.hash('admin123', 10);
-    const hashed2 = await bcrypt.hash('julius123', 10);
-
     await db.User.findOrCreate({
       where: { email: 'admin@gmail.com' },
       defaults: {
         username: 'Admin',
-        password: hashed1,
+        password: 'admin123',
         role: 'admin'
       }
     });
@@ -21,7 +18,7 @@ async function seed() {
       where: { email: 'julius@gmail.com' },
       defaults: {
         username: 'Julius',
-        password: hashed2,
+        password: 'admin123',
         role: 'admin'
       }
     });
