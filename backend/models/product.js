@@ -14,22 +14,22 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       defaultValue: 0,
     },
-  },{
-    freezeTableName: true
+  }, {
+    freezeTableName: true,
+    tableName: 'products'
   });
 
   Product.associate = (models) => {
-  Product.hasMany(models.StockIn, {
-    foreignKey: "product_id",
-    as: "stockins"
-  });
+    Product.hasMany(models.StockIn, {
+      foreignKey: "product_id",
+      as: "stockins"
+    });
 
-  Product.hasMany(models.StockOut, {
-    foreignKey: "product_id",
-    as: "stockouts"
-  });
-};
-
+    Product.hasMany(models.StockOut, {
+      foreignKey: "product_id",
+      as: "stockouts"
+    });
+  };
 
   return Product;
 };
