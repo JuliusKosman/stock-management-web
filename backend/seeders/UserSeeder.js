@@ -34,4 +34,4 @@ async function seedAdminUser() {
   }
 }
 
-seedAdminUser();
+module.exports = { seed };
