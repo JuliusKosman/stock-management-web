@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
 
 User.beforeCreate(async (user) => {
   console.log('Hook beforeCreate berjalan untuk:', user.email);
-  if (user.password && !user.password.startsWith('$2a$')) {
+  if (user.password && !user.password.startsWith('$2b$')) {
     const salt = await bcrypt.genSalt(10);
     user.password = await bcrypt.hash(user.password, salt);
   }
