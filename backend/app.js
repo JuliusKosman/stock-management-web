@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const db = require('./models');
-const seedAdminUser = require('./seedAdminUser');
+const seedAdminUser = require('./seeders/UserSeeder');
 
 const authRoutes = require('./routes/authRoutes');
 const barangRoutes = require('./routes/barangRoutes');
