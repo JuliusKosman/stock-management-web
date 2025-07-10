@@ -4,19 +4,17 @@ module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
     username: {
       type: DataTypes.STRING,
-      // unique: true,
       allowNull: false,
-  },
-
+    },
     email: {
       type: DataTypes.STRING,
-      // unique: true,
       allowNull: false,
     },
     password: DataTypes.STRING,
     role: DataTypes.STRING,
-  },{
-    freezeTableName: true
+  }, {
+    freezeTableName: true,
+    tableName: 'users'
   });
 
   User.beforeCreate(async (user) => {
