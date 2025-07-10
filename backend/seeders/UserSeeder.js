@@ -20,7 +20,7 @@ async function seed() {
 
     console.log('Admin users berhasil disisipkan');
   } catch (err) {
-    console.error('Gagal membuat admin user :', err.message);
+    console.error('Gagal membuat admin user:', err.message);
   }
 }
 
