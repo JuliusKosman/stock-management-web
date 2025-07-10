@@ -13,10 +13,16 @@ const arimaRoutes = require('./routes/arimaRoutes');
 dotenv.config();
 const app = express();
 
+const allowedOrigins = [
+  'https://jcstock.vercel.app',
+  'http://localhost:3000'
+];
+
 app.use(cors({
-  origin: 'https://jcstock.vercel.app',
-  credentials: true,
+  origin: allowedOrigins,
+  credentials: true
 }));
+
 
 // Middleware
 app.use(express.json());
