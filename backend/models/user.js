@@ -18,13 +18,11 @@ module.exports = (sequelize, DataTypes) => {
   });
 
 User.beforeCreate(async (user) => {
-  if (user.password && !user.password.startsWith('$2')) {
+  if (user.password && !user.password.startsWith('$2a$')) {
     const salt = await bcrypt.genSalt(10);
     user.password = await bcrypt.hash(user.password, salt);
   }
 });
-
-
 
   User.associate = (models) => {
     User.hasMany(models.ActivityLog, {
