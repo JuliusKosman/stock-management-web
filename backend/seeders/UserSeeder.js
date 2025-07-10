@@ -1,9 +1,9 @@
 const db = require('../models');
 const bcrypt = require('bcryptjs');
 
-async function seedAdminUser() {
+async function seed() {
   try {
-    await db.sequelize.authenticate(); // hanya cek koneksi
+    await db.sequelize.authenticate();
 
     const hashed1 = await bcrypt.hash('admin123', 10);
     const hashed2 = await bcrypt.hash('julius123', 10);
@@ -26,11 +26,9 @@ async function seedAdminUser() {
       }
     });
 
-    console.log('Admin users ready (created or already exist)');
-    process.exit();
+    console.log('Admin users berhasil disisipkan');
   } catch (err) {
     console.error('Gagal membuat admin user:', err.message);
-    process.exit(1);
   }
 }
 
