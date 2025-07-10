@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
 
+
 exports.login = async (req, res) => {
   const { email, password } = req.body;
 
@@ -10,8 +11,11 @@ exports.login = async (req, res) => {
     const user = await db.User.findOne({ where: { email } });
     if (!user) return res.status(404).json({ message: 'User not found' });
 
+    console.log('Input password:', password);
+    console.log('Stored hash from DB:', user.password);
     const valid = await bcrypt.compare(password, user.password);
-    if (!valid) return res.status(401).json({ message: 'Invalid password'},password, user.password);
+    console.log('Compare result:', valid);
+    if (!valid) return res.status(401).json({ message: 'Invalid password' });
 
     const token = jwt.sign(
       { id: user.id, role: user.role, username: user.username },
