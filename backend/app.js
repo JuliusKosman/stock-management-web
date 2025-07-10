@@ -34,16 +34,25 @@ app.get('/', (req, res) => res.send('API Stock Management Running...'));
 // Scheduler
 require('./schedulers/arimaJob');
 
-// DB Sync & Server Start
+const PORT = process.env.PORT || 3000;
+
 db.sequelize.sync()
-  .then(() => {
+  .then(async () => {
     console.log('Database connected & synced.');
+
+    try {
+      await seedAdminUser.seed();
+      console.log('Seeder selesai dijalankan');
+    } catch (err) {
+      console.error('Seeder gagal dijalankan:', err.message);
+    }
+
+    app.listen(PORT, () => {
+      console.log(`Server is running on port ${PORT}`);
+    });
+  })
+  .catch(err => {
+    console.error('Gagal koneksi DB:', err.message);
   });
 
-seedAdminUser.seed();
-
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
 
