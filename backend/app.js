@@ -34,9 +34,10 @@ app.get('/', (req, res) => res.send('API Stock Management Running...'));
 require('./schedulers/arimaJob');
 
 // DB Sync & Server Start
-db.sequelize.sync({ alter: true }).then(() => {
-  console.log('Database connected & synced.');
-});
+db.sequelize.sync()
+  .then(() => {
+    console.log('Database connected & synced.');
+  });
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
