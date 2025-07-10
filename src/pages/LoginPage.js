@@ -30,9 +30,12 @@ export default function LoginPage() {
     if (!validateInputs()) return;
 
     try {
-      const response = await axios.post("https://jcstock.onrender.com/api/auth/login", {
-        { email, password },{ withCredentials: true }
-      });
+      const response = await axios.post(
+        "https://jcstock.onrender.com/api/auth/login",
+        { email, password },
+        { withCredentials: true }
+      );
+
 
       const token = response.data.token;
       localStorage.setItem("token", token);
