@@ -17,13 +17,10 @@ module.exports = (sequelize, DataTypes) => {
     tableName: 'users'
   });
 
-User.beforeCreate(async (user) => {
-  console.log('Hook beforeCreate berjalan untuk:', user.email);
-  if (user.password && !user.password.startsWith('$2b$')) {
+  User.beforeCreate(async (user) => {
     const salt = await bcrypt.genSalt(10);
     user.password = await bcrypt.hash(user.password, salt);
-  }
-});
+  });
 
 
   User.associate = (models) => {
