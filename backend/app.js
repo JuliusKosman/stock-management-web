@@ -41,7 +41,8 @@ db.sequelize.sync()
     console.log('Database connected & synced.');
 
     try {
-      await seedAdminUser.seed();
+      const { seed } = require('./seeders/UserSeeder');
+      await seed();
       console.log('Seeder selesai dijalankan');
     } catch (err) {
       console.error('Seeder gagal dijalankan:', err.message);
@@ -54,5 +55,6 @@ db.sequelize.sync()
   .catch(err => {
     console.error('Gagal koneksi DB:', err.message);
   });
+
 
 
