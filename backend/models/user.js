@@ -25,6 +25,7 @@ User.beforeCreate(async (user) => {
 });
 
 
+
   User.associate = (models) => {
     User.hasMany(models.ActivityLog, {
       foreignKey: 'user_id',
