@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 
 async function seedAdminUser() {
   try {
-    await db.sequelize.authenticate(); // cukup authenticate, tidak perlu sync
+    await db.sequelize.authenticate();
 
     const hashed1 = await bcrypt.hash('admin123', 10);
     const hashed2 = await bcrypt.hash('julius123', 10);
