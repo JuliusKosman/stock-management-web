@@ -8,13 +8,13 @@ async function seedAdminUser() {
     await db.User.create({
       username: 'Admin',
       email: 'admin@gmail.com',
-      password: 'admin123',
+      password: '$2b$10$8IHKYnC6vHsLEJcOugcNGu7ljLShgoXksDSxena0vJi',
       role: 'admin'
     });
     await db.User.create({
       username: 'Julius',
       email: 'julius@gmail.com',
-      password: 'admin123',
+      password: '$2a$12$6XfTX8YPG14xBkwwHU91Bet/BgSwz2oU4MYig0EANHZ',
       role: 'admin'
     });
     console.log('Admin user dibuat');
