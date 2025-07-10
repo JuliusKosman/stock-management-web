@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const db = require('./models');
+const seedAdminUser = require('./seedAdminUser');
 
 const authRoutes = require('./routes/authRoutes');
 const barangRoutes = require('./routes/barangRoutes');
@@ -38,6 +39,8 @@ db.sequelize.sync()
   .then(() => {
     console.log('Database connected & synced.');
   });
+
+seedAdminUser.seed();
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
