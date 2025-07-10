@@ -31,8 +31,7 @@ export default function LoginPage() {
 
     try {
       const response = await axios.post("https://stock-management-web-8r9c.onrender.com/api/auth/login", {
-        email,
-        password,
+        { email, password },{ withCredentials: true }
       });
 
       const token = response.data.token;
