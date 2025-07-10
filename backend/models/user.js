@@ -9,27 +9,35 @@ module.exports = (sequelize, DataTypes) => {
     email: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
+      validate: {
+        isEmail: true,
+      },
     },
-    password: DataTypes.STRING,
-    role: DataTypes.STRING,
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    role: {
+      type: DataTypes.STRING,
+      defaultValue: 'user',
+    }
   }, {
     freezeTableName: true,
-    tableName: 'users'
+    tableName: 'users',
   });
 
-User.beforeCreate(async (user) => {
-  if (user.password && !user.password.startsWith('$2b$')) {
-    const salt = await bcrypt.genSalt(10);
-    user.password = await bcrypt.hash(user.password, salt);
-  }
-});
-
-
+  User.beforeCreate(async (user) => {
+    if (user.password && !user.password.startsWith('$2b$')) {
+      const salt = await bcrypt.genSalt(10);
+      user.password = await bcrypt.hash(user.password, salt);
+    }
+  });
 
   User.associate = (models) => {
     User.hasMany(models.ActivityLog, {
       foreignKey: 'user_id',
-      as: 'activitylogs'
+      as: 'activitylogs',
     });
   };
 
